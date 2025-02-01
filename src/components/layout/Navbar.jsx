@@ -57,8 +57,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="bg-blue-600 shadow-md ">
-      <div className="container mx-auto flex items-center justify-between py-4 px-6 ">
+    <div className="bg-transparent shadow-md z-50 lg:absolute w-full">
+      <div className="container mx-auto flex items-center justify-between py-4 px-6 relative z-50">
         {/* Navbar Start */}
         <div className="flex items-center">
           {/* Logo */}
@@ -68,96 +68,105 @@ const Navbar = () => {
         </div>
 
         {/* Navbar Center */}
-        <div className="hidden lg:flex space-x-6">
-          <ul className="flex items-center space-x-4">
-            {navItems.map((item, index) => (
-              <li key={index} className={item.submenu ? "relative group" : ""}>
-                <a href={item.link} className="text-white hover:text-gray-800">
-                  {item.name}
-                </a>
-                {item.submenu && (
-                  <ul className="hidden group-hover:block absolute left-0 mt-2 w-48 rounded-lg bg-white shadow-md">
-                    {item.submenu.map((subitem, subIndex) => (
-                      <li key={subIndex}>
+        <div className="hidden lg:flex space-x-6  w-full">
+          <div className="flex gap-5 mx-auto ">
+            <ul className="flex items-center space-x-4 ">
+              {navItems.map((item, index) => (
+                <li
+                  key={index}
+                  className={item.submenu ? "relative group" : ""}
+                >
+                  <a
+                    href={item.link}
+                    className="text-white hover:text-gray-800"
+                  >
+                    {item.name}
+                  </a>
+                  {item.submenu && (
+                    <ul className="hidden group-hover:block absolute left-0 mt-2 w-48 rounded-lg bg-white shadow-md">
+                      {item.submenu.map((subitem, subIndex) => (
+                        <li key={subIndex}>
+                          <a
+                            href={subitem.link}
+                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                          >
+                            {subitem.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+
+            {/* len */}
+            <div className="relative" ref={profileDropdownRef}>
+              <button
+                onClick={toggleProfileDropdown}
+                className="flex items-center space-x-2  px-4 py-2 rounded-full border border-white hover:bg-gray-200"
+              >
+                <FaGlobe className="text-white" />
+                <span className="text-white">EN</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {isProfileDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 rounded-lg bg-white shadow-md">
+                  <ul className="py-2">
+                    <>
+                      <li>
                         <a
-                          href={subitem.link}
+                          href="#logout"
                           className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                         >
-                          {subitem.name}
+                          EN (English)
                         </a>
                       </li>
-                    ))}
+                      <li>
+                        <a
+                          href="#logout"
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        >
+                          TH (Thai)
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#logout"
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        >
+                          ID (Bahasa indonesia)
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#logout"
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        >
+                          TW (Traditional Chinese)
+                        </a>
+                      </li>
+                    </>
                   </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          {/* len */}
-          <div className="relative" ref={profileDropdownRef}>
-            <button
-              onClick={toggleProfileDropdown}
-              className="flex items-center space-x-2  px-4 py-2 rounded-full border border-white hover:bg-gray-200"
-            >
-              <FaGlobe className="text-white" />
-              <span className="text-white">EN</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-            {isProfileDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 rounded-lg bg-white shadow-md">
-                <ul className="py-2">
-                  <>
-                    <li>
-                      <a
-                        href="#logout"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        EN (English)
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#logout"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        TH (Thai)
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#logout"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        ID (Bahasa indonesia)
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#logout"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        TW (Traditional Chinese)
-                      </a>
-                    </li>
-                  </>
-                </ul>
-              </div>
-            )}
+                </div>
+              )}
+            </div>
           </div>
+
           {/* contact */}
           <div>
             <button
@@ -175,7 +184,7 @@ const Navbar = () => {
         <div className="lg:hidden " ref={dropdownRef}>
           <button
             onClick={toggleDropdown}
-            className="text-gray-600 focus:outline-none focus:text-gray-800"
+            className="text-white focus:outline-none focus:text-gray-800"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
