@@ -27,7 +27,10 @@ const Banner = () => {
       <img
         src={HeroImage}
         alt="Hero Background"
-        className="absolute  right-0 w-1/2 h-full pt-20 object-cover "
+        className="absolute  right-0 w-full h-full pt-20 object-cover  "
+        style={{
+          clipPath: "polygon(80% 0%, 130% 10%, 90% 100%, 0% 100%, 0% 150%)"
+        }}
       />
 
       {/* Floating Wave Lines - Covering Full Banner */}
