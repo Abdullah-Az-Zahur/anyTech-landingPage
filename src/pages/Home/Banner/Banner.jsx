@@ -24,7 +24,7 @@ const Banner = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-blue-600">
-      {/* Full Background Image */}
+      {/* Background Image */}
       <img
         src={HeroImage}
         alt="Hero Background"
@@ -34,7 +34,7 @@ const Banner = () => {
         }}
       />
 
-      {/* Floating Wave Lines - Covering Full Banner */}
+      
       <motion.img
         src={WaveLinesDesktop1}
         alt="Wave1"
@@ -64,7 +64,7 @@ const Banner = () => {
         transition={{ type: "tween", stiffness: 100 }}
       />
 
-      {/* Text Content (Positioned Left) */}
+      {/* Text Content  */}
       <div className="relative z-10 flex items-center h-full w-full px-10">
         <div className="text-white max-w-lg">
           <h1 className="text-7xl font-bold mb-4">Embrace the future of finance</h1>
