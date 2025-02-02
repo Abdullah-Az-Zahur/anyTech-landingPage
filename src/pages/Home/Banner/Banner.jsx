@@ -6,6 +6,7 @@ import WaveLinesDesktop2 from "../../../assets/image/backgrounds/WaveLinesDeskto
 import WaveLinesDesktop3 from "../../../assets/image/backgrounds/WaveLinesDesktop3.svg";
 import WaveLinesDesktop4 from "../../../assets/image/backgrounds/WaveLinesDesktop4.svg";
 import HeroImage from "../../../assets/image/backgrounds/Woman-laptop-purple-computer-website-glasses.jpg";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Banner = () => {
   const [mouseX, setMouseX] = useState(0);
@@ -66,11 +67,14 @@ const Banner = () => {
       {/* Text Content (Positioned Left) */}
       <div className="relative z-10 flex items-center h-full w-full px-10">
         <div className="text-white max-w-lg">
-          <h1 className="text-4xl font-bold mb-4">Welcome to Our Platform</h1>
+          <h1 className="text-7xl font-bold mb-4">Embrace the future of finance</h1>
           <p className="text-lg">
-            Discover a new way to explore opportunities and grow your career.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae nesciunt exercitationem suscipit qui. Optio, iste.
           </p>
+
+          <button type="button" className="mt-6 bg-orange-400 text-white text-xl font-bold p-5 rounded-md px-8 flex items-center gap-2 text-center">Reach Out Us <IoIosArrowForward /></button>
         </div>
+        
       </div>
     </div>
   );
